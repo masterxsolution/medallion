@@ -1,0 +1,26 @@
+[Unit]
+Description=MDL's distributed currency daemon
+After=network.target
+
+[Service]
+User=medallion
+Group=medallion
+
+Type=forking
+PIDFile=/var/lib/medalliond/medalliond.pid
+
+ExecStart=/usr/bin/medalliond -daemon -pid=/var/lib/medalliond/medalliond.pid \
+          -conf=/etc/medallion/medallion.conf -datadir=/var/lib/medalliond
+
+ExecStop=-/usr/bin/medallion-cli -conf=/etc/medallion/medallion.conf \
+         -datadir=/var/lib/medalliond stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

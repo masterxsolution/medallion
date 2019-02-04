@@ -1,0 +1,26 @@
+# /etc/conf.d/medalliond: config file for /etc/init.d/medalliond
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/medallion/medallion.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/medalliond"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/medalliond.pid"
+
+# Where to write medalliond data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/medalliond"
+
+# User and group to own medalliond process
+#BITCOIND_USER="medallion"
+#BITCOIND_GROUP="medallion"
+
+# Path to medalliond executable
+#BITCOIND_BIN="/usr/bin/medalliond"
+
+# Nice value to run medalliond under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
